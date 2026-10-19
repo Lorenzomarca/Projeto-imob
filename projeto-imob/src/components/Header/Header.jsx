@@ -8,96 +8,79 @@ function Header() {
 
   const fecharMenu = () => setMenuAberto(false);
 
-  const links = [
-    { texto: "Início", href: "#inicio" },
-    { texto: "Imóveis", href: "#catalogo" },
-    { texto: "A marca", href: "#sobre" },
-    { texto: "Contato", href: "#contato" },
-  ];
-
   return (
-    <header className="bd-header">
-      <div className="bd-header-glow" />
+    <header className="lux-header">
+      <div className="lux-header-inner">
 
-      <div className="bd-header-container">
         <a
-          className="bd-brand"
           href="#inicio"
-          onClick={fecharMenu}
+          className="lux-brand"
           aria-label="Black Dragons Imobiliária - Início"
+          onClick={fecharMenu}
         >
-          <div className="bd-logo-frame">
-            <img
-              className="bd-logo"
-              src={logo}
-              alt="Black Dragons"
-            />
-          </div>
+          <img
+            src={logo}
+            alt="Black Dragons"
+            className="lux-logo"
+          />
 
-          <div className="bd-brand-info">
-            <span className="bd-brand-name">
-              BLACK DRAGONS
-            </span>
+          <span className="lux-brand-divider" />
 
-            <span className="bd-brand-subtitle">
-              <i />
-              REAL ESTATE
-              <i />
-            </span>
-          </div>
+          <span className="lux-brand-caption">
+            <strong>BLACK DRAGONS</strong>
+            <small>IMOBILIÁRIA</small>
+          </span>
         </a>
 
         <button
           type="button"
-          className={`bd-menu-toggle ${
-            menuAberto ? "is-active" : ""
+          className={`lux-menu-button ${
+            menuAberto ? "open" : ""
           }`}
           onClick={() => setMenuAberto(!menuAberto)}
           aria-label={menuAberto ? "Fechar menu" : "Abrir menu"}
           aria-expanded={menuAberto}
-          aria-controls="bd-navigation"
+          aria-controls="lux-navigation"
         >
-          <span />
           <span />
           <span />
         </button>
 
         <nav
-          id="bd-navigation"
-          className={`bd-navigation ${
-            menuAberto ? "is-open" : ""
+          id="lux-navigation"
+          className={`lux-navigation ${
+            menuAberto ? "visible" : ""
           }`}
         >
-          <div className="bd-nav-links">
-            {links.map((link, index) => (
-              <a
-                key={link.href}
-                className={`bd-nav-link ${
-                  index === 0 ? "bd-nav-home" : ""
-                }`}
-                href={link.href}
-                onClick={fecharMenu}
-              >
-                <span className="bd-nav-index">
-                  0{index + 1}
-                </span>
-                {link.texto}
-              </a>
-            ))}
-          </div>
+          <a href="#inicio" onClick={fecharMenu}>
+            Início
+          </a>
+
+          <a href="#catalogo" onClick={fecharMenu}>
+            Imóveis
+          </a>
+
+          <a href="#sobre" onClick={fecharMenu}>
+            Sobre nós
+          </a>
+
+          <a href="#contato" onClick={fecharMenu}>
+            Contato
+          </a>
 
           <a
             href="#catalogo"
-            className="bd-cta"
+            className="lux-cta"
             onClick={fecharMenu}
           >
-            <span className="bd-cta-icon">↗</span>
+            <span className="lux-cta-icon">↗</span>
             <span>Explorar imóveis</span>
           </a>
         </nav>
+
       </div>
 
-      <div className="bd-header-bottom-line" />
+      <div className="lux-bottom-border" />
     </header>
   );
 }
