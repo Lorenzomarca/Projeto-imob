@@ -1,17 +1,23 @@
+
 import { useState } from "react";
 import "./Main.css";
-import aurora from "../../assets/images/aurora.jpg"
-import dvert from "../../assets/images/dvert.jpg"
-import sky from "../../assets/images/skyline.jpg"
-import ocn from "../../assets/images/ocean.jpg"
-import saco from "../../assets/images/residencial_saco_grande.jpg"
-import bosque from "../../assets/images/casa-bosque.jpg"
-import agro from "../../assets/images/saco-grande.jpg"
-import trindade from "../../assets/images/casa_modelo_06.jpg"
-import abraa from "../../assets/images/abraao.jpg"
-import ifn from "../../assets/images/infinity.jpg"
-import resed from "../../assets/images/marina.jpg"
-import atlantida from "../../assets/images/jardim-atlantico.jpg"
+
+import logoDragons from "../../assets/images/Emblema Black Dragons em Fundo Transparente.png";
+import imagemEdificio from "../../assets/images/foot-fundologo.jpg";
+
+import aurora from "../../assets/images/aurora.jpg";
+import dvert from "../../assets/images/dvert.jpg";
+import sky from "../../assets/images/skyline.jpg";
+import ocn from "../../assets/images/ocean.jpg";
+import saco from "../../assets/images/residencial_saco_grande.jpg";
+import bosque from "../../assets/images/casa-bosque.jpg";
+import agro from "../../assets/images/saco-grande.jpg";
+import trindade from "../../assets/images/casa_modelo_06.jpg";
+import abraa from "../../assets/images/abraao.jpg";
+import ifn from "../../assets/images/infinity.jpg";
+import resed from "../../assets/images/marina.jpg";
+import atlantida from "../../assets/images/jardim-atlantico.jpg";
+
 const lancamentos = [
   {
     id: 1,
@@ -249,9 +255,7 @@ function CardImovel({ imovel, favorito, alternarFavorito }) {
       <div className="property-info">
         <div className="property-type-row">
           <span>{imovel.tipo}</span>
-          <span className="property-code">
-            BD-{imovel.id}00
-          </span>
+          <span className="property-code">BD-{imovel.id}00</span>
         </div>
 
         <h3>{imovel.nome}</h3>
@@ -326,33 +330,48 @@ function Main() {
 
   return (
     <main className="bd-main">
-      {/* HERO — coloque sua imagem no elemento .main-hero */}
-
+      {/* HERO — texto à esquerda e foto do edifício à direita */}
       <section className="main-hero" id="inicio">
-        <div className="main-hero-content">
-          <span className="main-hero-eyebrow">
-            <span />
-            IMÓVEIS SELECIONADOS EM SANTA CATARINA
-          </span>
+        <div className="main-hero-layout">
+          <div className="main-hero-content">
+            <span className="main-hero-eyebrow">
+              <span />
+              IMÓVEIS SELECIONADOS EM SANTA CATARINA
+            </span>
 
-          <h1>
-            O lugar certo.
-            <br />
-            <em>A sua próxima história.</em>
-          </h1>
+            <h1>
+              O lugar certo.
+              <br />
+              <em>A sua próxima história.</em>
+            </h1>
 
-          <p>
-            Imóveis escolhidos para quem valoriza conforto,
-            localização e novas possibilidades.
-          </p>
+            <p>
+              Imóveis escolhidos para quem valoriza conforto,
+              localização e novas possibilidades.
+            </p>
 
-          <button
-            type="button"
-            className="main-hero-button"
-            onClick={() => irPara("catalogo")}
-          >
-            Encontrar meu imóvel <span>↗</span>
-          </button>
+            <button
+              type="button"
+              className="main-hero-button"
+              onClick={() => irPara("catalogo")}
+            >
+              Encontrar meu imóvel <span>↗</span>
+            </button>
+          </div>
+
+          <div className="main-hero-image">
+            <img
+              src={imagemEdificio}
+              alt="Edifícios modernos em Santa Catarina"
+              fetchPriority="high"
+            />
+
+            <div className="main-hero-image-shade" />
+
+            <span className="main-hero-image-label">
+              FLORIANÓPOLIS · SANTA CATARINA
+            </span>
+          </div>
         </div>
 
         <div className="main-hero-caption">
@@ -361,7 +380,6 @@ function Main() {
       </section>
 
       {/* BUSCA */}
-
       <section
         className="main-search-wrap"
         aria-label="Buscar imóveis"
@@ -421,7 +439,6 @@ function Main() {
       </section>
 
       {/* LANÇAMENTOS */}
-
       <section className="main-section main-launches" id="lancamentos">
         <TituloSecao
           titulo="Lançamentos"
@@ -437,7 +454,6 @@ function Main() {
       </section>
 
       {/* DESTAQUES */}
-
       <section className="main-section main-highlights" id="destaques">
         <TituloSecao
           titulo="Destaques da semana"
@@ -458,7 +474,6 @@ function Main() {
       </section>
 
       {/* MAIS IMÓVEIS */}
-
       <section
         className="main-section main-more-properties"
         id="catalogo"
@@ -528,7 +543,6 @@ function Main() {
       </section>
 
       {/* SOBRE NÓS */}
-
       <section className="main-contact-banner" id="sobre">
         <div>
           <span className="main-eyebrow">QUEM SOMOS</span>
@@ -549,15 +563,15 @@ function Main() {
           </a>
         </div>
 
-        <span className="contact-monogram" aria-hidden="true">
-          BD
-        </span>
+        <div className="contact-logo" aria-hidden="true">
+          <img src={logoDragons} alt="" loading="lazy" />
+        </div>
       </section>
 
       {/* CONTATO */}
-
       <section className="main-contact-section" id="contato">
         <span className="main-eyebrow">ESTAMOS À DISPOSIÇÃO</span>
+
         <h2>Vamos encontrar seu próximo imóvel?</h2>
 
         <p>
@@ -565,7 +579,7 @@ function Main() {
           com nossa equipe.
         </p>
 
-        {/* Troque pelo número real da imobiliária */}
+        {/* Substitua pelo número real da imobiliária */}
         <a
           className="main-contact-button"
           href="https://wa.me/5500000000000"

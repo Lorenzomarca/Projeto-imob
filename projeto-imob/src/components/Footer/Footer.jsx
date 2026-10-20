@@ -1,6 +1,5 @@
 
 import "./Footer.css";
-import localizacao from "../../assets/images/imob-blackdragons.jpg";
 
 const MAPS_URL = "https://maps.app.goo.gl/ykMt1Fdk5JdvcVad7";
 
@@ -10,7 +9,7 @@ function Footer() {
       <div className="lux-footer-glow" />
 
       <div className="lux-footer-inner">
-        {/* IDENTIDADE DA MARCA */}
+        {/* MARCA */}
         <div className="footer-brand">
           <a href="#inicio" className="footer-brand-name">
             BLACK DRAGONS <span>IMOB</span>
@@ -24,7 +23,6 @@ function Footer() {
             ajudamos você a encontrar seu lugar.
           </p>
 
-          {/* REDES SOCIAIS */}
           <div className="footer-socials">
             <a
               href="https://www.instagram.com/blackdragons.imob/"
@@ -34,7 +32,12 @@ function Footer() {
               aria-label="Instagram da Black Dragons IMOB"
               title="Instagram"
             >
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              {/* Ícone Instagram em SVG */}
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
                 <rect
                   x="3"
                   y="3"
@@ -51,7 +54,12 @@ function Footer() {
                   stroke="currentColor"
                   strokeWidth="1.7"
                 />
-                <circle cx="17.5" cy="6.8" r="1" fill="currentColor" />
+                <circle
+                  cx="17.5"
+                  cy="6.8"
+                  r="1"
+                  fill="currentColor"
+                />
               </svg>
             </a>
 
@@ -63,7 +71,12 @@ function Footer() {
               aria-label="WhatsApp demonstrativo"
               title="WhatsApp"
             >
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              {/* Ícone WhatsApp em SVG */}
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
                 <path
                   d="M20 11.7a8 8 0 0 1-11.8 7L4 20l1.3-4A8 8 0 1 1 20 11.7Z"
                   stroke="currentColor"
@@ -86,7 +99,6 @@ function Footer() {
         {/* NAVEGAÇÃO */}
         <nav className="footer-column" aria-label="Navegação do rodapé">
           <h3>Navegação</h3>
-
           <a href="#inicio">Início</a>
           <a href="#lancamentos">Lançamentos</a>
           <a href="#destaques">Imóveis em destaque</a>
@@ -126,16 +138,15 @@ function Footer() {
             Saco Grande, Florianópolis — SC
           </p>
 
-          {/* IMAGEM DA REGIÃO */}
+          {/* Mapa incorporado */}
           <div className="footer-map">
-            <img
-              src={localizacao}
-              alt="Edifício na região litorânea, representando a localização da Black Dragons IMOB"
-              className="footer-location-image"
+            <iframe
+              title="Mapa da região da Black Dragons IMOB"
+              src="https://maps.google.com/maps?q=Floripa%20Shopping%2C%20Florian%C3%B3polis%2C%20SC&t=&z=14&ie=UTF8&iwloc=&output=embed"
               loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
             />
-
-            <div className="footer-image-overlay" />
 
             <a
               className="footer-map-open"
@@ -143,18 +154,14 @@ function Footer() {
               target="_blank"
               rel="noreferrer"
             >
-              <span>Ver localização</span>
+              <span>Como chegar</span>
               <span aria-hidden="true">↗</span>
             </a>
           </div>
-
-          <span className="footer-map-caption">
-            Florianópolis e região
-          </span>
         </div>
       </div>
 
-      {/* RODAPÉ INFERIOR */}
+      {/* BASE DO FOOTER */}
       <div className="lux-footer-bottom">
         <p>
           © {new Date().getFullYear()} Black Dragons IMOB.

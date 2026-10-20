@@ -1315,3 +1315,451 @@
     transition: none !important;
   }
 }
+
+
+/* Abre espaço para a logo sem alterar o texto */
+
+.bd-main .main-hero-content {
+  max-width: 1380px;
+}
+
+@media (min-width: 1101px) {
+  .bd-main .main-hero-content {
+    width: min(100% - 80px, 1380px);
+  }
+
+  .bd-main .main-hero-content > * {
+    max-width: 65%;
+  }
+}
+
+/* Logo flutuante no início */
+
+.bd-main .main-hero-logo {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: max(5%, calc((100% - 1380px) / 2));
+  width: clamp(220px, 27vw, 390px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  transform: translateY(-50%);
+  pointer-events: none;
+  animation: dragons-float 6s ease-in-out infinite;
+}
+
+.bd-main .main-hero-logo-glow {
+  position: absolute;
+  inset: 15%;
+  border-radius: 50%;
+  background: rgba(210, 213, 222, 0.12);
+  filter: blur(65px);
+}
+
+.bd-main .main-hero-logo img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 12px 28px rgba(0, 0, 0, 0.45))
+    drop-shadow(0 0 18px rgba(220, 222, 230, 0.12));
+}
+
+/* Logo na seção Sobre Nós */
+
+.bd-main .contact-logo {
+  position: relative;
+  flex-shrink: 0;
+  width: clamp(170px, 23vw, 290px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+
+.bd-main .contact-logo::before {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  border-radius: 50%;
+  background: rgba(217, 219, 224, 0.08);
+  filter: blur(45px);
+}
+
+.bd-main .contact-logo img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.35));
+  animation: dragons-float 7s ease-in-out infinite;
+}
+
+/* Flutuação discreta */
+
+@keyframes dragons-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Tablets */
+
+@media (max-width: 1100px) {
+  .bd-main .main-hero-logo {
+    right: 2%;
+    width: clamp(190px, 27vw, 290px);
+    opacity: 0.85;
+  }
+
+  .bd-main .main-hero-content > * {
+    max-width: 68%;
+  }
+}
+
+/* Celulares */
+
+@media (max-width: 650px) {
+  .bd-main .main-hero-content > * {
+    max-width: 100%;
+  }
+
+  .bd-main .main-hero-logo {
+    top: auto;
+    right: 12px;
+    bottom: 45px;
+    width: 125px;
+    transform: none;
+    opacity: 0.27;
+    animation: dragons-mobile-float 6s ease-in-out infinite;
+  }
+
+  .bd-main .main-hero-logo-glow {
+    filter: blur(35px);
+  }
+
+  .bd-main .main-contact-banner {
+    align-items: flex-start;
+  }
+
+  .bd-main .contact-logo {
+    align-self: center;
+    width: clamp(140px, 42vw, 210px);
+    margin: 5px auto 0;
+  }
+}
+
+@keyframes dragons-mobile-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Respeita a preferência por menos animações */
+
+@media (prefers-reduced-motion: reduce) {
+  .bd-main .main-hero-logo,
+  .bd-main .contact-logo img {
+    animation: none;
+  }
+}
+
+
+/* ==========================================
+   BLACK DRAGONS — HERO COM FOTO PREMIUM
+   Texto à esquerda + edifício à direita
+========================================== */
+
+.bd-main .main-hero {
+  min-height: 540px;
+  height: auto;
+  background:
+    radial-gradient(
+      ellipse at 80% 45%,
+      rgba(105, 112, 128, 0.16),
+      transparent 42%
+    ),
+    #09090a;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bd-main .main-hero::before {
+  background: linear-gradient(
+    90deg,
+    rgba(9, 9, 10, 0.98) 0%,
+    rgba(9, 9, 10, 0.92) 35%,
+    rgba(9, 9, 10, 0.30) 72%,
+    rgba(9, 9, 10, 0.12) 100%
+  );
+}
+
+.bd-main .main-hero-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.82fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 72px);
+  width: 100%;
+  min-height: inherit;
+  padding: clamp(32px, 5vw, 68px);
+}
+
+.bd-main .main-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 680px;
+  padding: 0;
+}
+
+.bd-main .main-hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+  color: #e4e5e8;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.8;
+}
+
+.bd-main .main-hero-eyebrow span {
+  flex-shrink: 0;
+  width: 27px;
+  height: 1px;
+  background: #d5d7dc;
+}
+
+.bd-main .main-hero h1 {
+  margin: 0;
+  color: #f5f5f6;
+  font-size: clamp(39px, 5vw, 70px);
+  font-weight: 450;
+  letter-spacing: -2.8px;
+  line-height: 1.07;
+}
+
+.bd-main .main-hero h1 em {
+  color: #bfc1c8;
+  font-style: normal;
+}
+
+.bd-main .main-hero-content > p {
+  max-width: 440px;
+  margin: 23px 0 30px;
+  color: #c2c3c8;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.bd-main .main-hero-button {
+  min-height: 50px;
+  padding: 0 21px;
+  gap: 28px;
+  border: 1px solid #f1f1f3;
+  border-radius: 3px;
+  background: linear-gradient(135deg, #f5f5f6, #c9cbd1);
+  color: #111214;
+  font-size: 12px;
+  font-weight: 750;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.bd-main .main-hero-button:hover {
+  transform: translateY(-2px);
+  background: #fff;
+  color: #111214;
+  box-shadow: 0 8px 28px rgba(255, 255, 255, 0.12);
+}
+
+/* FOTO DO EDIFÍCIO */
+
+.bd-main .main-hero-image {
+  position: relative;
+  align-self: stretch;
+  min-width: 0;
+  min-height: 390px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 3px;
+  background: #17191e;
+  box-shadow: 0 22px 65px rgba(0, 0, 0, 0.3);
+}
+
+.bd-main .main-hero-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center 45%;
+  filter: brightness(0.84) contrast(1.04) saturate(0.88);
+  transition:
+    transform 0.8s ease,
+    filter 0.5s ease;
+}
+
+.bd-main .main-hero-image:hover img {
+  transform: scale(1.035);
+  filter: brightness(0.96) contrast(1.04) saturate(0.95);
+}
+
+.bd-main .main-hero-image-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      0deg,
+      rgba(7, 8, 10, 0.78) 0%,
+      transparent 32%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(7, 8, 10, 0.12),
+      transparent 45%
+    );
+  pointer-events: none;
+}
+
+.bd-main .main-hero-image-label {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  color: #f1f1f3;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.6;
+}
+
+/* ASSINATURA NO RODAPÉ DO HERO */
+
+.bd-main .main-hero-caption {
+  z-index: 2;
+  right: 24px;
+  bottom: 18px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 8px;
+  letter-spacing: 1.8px;
+}
+
+/* TABLETS */
+
+@media (max-width: 850px) {
+  .bd-main .main-hero {
+    min-height: 0;
+  }
+
+  .bd-main .main-hero-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(230px, 0.72fr);
+    gap: 24px;
+    padding: 34px;
+  }
+
+  .bd-main .main-hero h1 {
+    font-size: clamp(34px, 5vw, 48px);
+    letter-spacing: -1.8px;
+  }
+
+  .bd-main .main-hero-image {
+    min-height: 330px;
+  }
+
+  .bd-main .main-hero-eyebrow {
+    font-size: 8px;
+    letter-spacing: 1.3px;
+  }
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+  .bd-main .main-hero {
+    width: calc(100% - 28px);
+    margin-top: 14px;
+  }
+
+  .bd-main .main-hero::before {
+    background: linear-gradient(
+      0deg,
+      rgba(9, 9, 10, 0.96) 0%,
+      rgba(9, 9, 10, 0.80) 55%,
+      rgba(9, 9, 10, 0.38) 100%
+    );
+  }
+
+  .bd-main .main-hero-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 30px 22px 45px;
+  }
+
+  .bd-main .main-hero-content {
+    width: 100%;
+  }
+
+  .bd-main .main-hero-eyebrow {
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: 8px;
+    letter-spacing: 1.1px;
+  }
+
+  .bd-main .main-hero-eyebrow span {
+    width: 19px;
+  }
+
+  .bd-main .main-hero h1 {
+    font-size: clamp(36px, 9vw, 48px);
+    letter-spacing: -1.8px;
+    line-height: 1.08;
+  }
+
+  .bd-main .main-hero-content > p {
+    margin: 17px 0 23px;
+    font-size: 12px;
+  }
+
+  .bd-main .main-hero-image {
+    width: 100%;
+    min-height: 0;
+    height: 300px;
+  }
+
+  .bd-main .main-hero-image-label {
+    font-size: 8px;
+  }
+
+  .bd-main .main-hero-caption {
+    right: 15px;
+    bottom: 12px;
+    font-size: 7px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bd-main .main-hero-image img,
+  .bd-main .main-hero-button {
+    transition: none;
+  }
+}
