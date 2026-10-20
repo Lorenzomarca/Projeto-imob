@@ -575,11 +575,6 @@ function Main() {
           Falar pelo WhatsApp <span>↗</span>
         </a>
       </section>
-
-      <footer className="main-bottom-line">
-        <span>BLACK DRAGONS IMOBILIÁRIA</span>
-        <a href="#inicio">Voltar ao início ↑</a>
-      </footer>
     </main>
   );
 }
