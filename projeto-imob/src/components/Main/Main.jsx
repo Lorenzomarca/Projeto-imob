@@ -4,10 +4,10 @@ import aurora from "../../assets/images/aurora.jpg"
 import dvert from "../../assets/images/dvert.jpg"
 import sky from "../../assets/images/skyline.jpg"
 import ocn from "../../assets/images/ocean.jpg"
-import saco from "../../assets/images/saco-grande.jpg"
+import saco from "../../assets/images/residencial_saco_grande.jpg"
 import bosque from "../../assets/images/casa-bosque.jpg"
-import agro from "../../assets/images/agronomica.jpg"
-import trindade from "../../assets/images/trindade.jpg"
+import agro from "../../assets/images/saco-grande.jpg"
+import trindade from "../../assets/images/casa_modelo_06.jpg"
 import abraa from "../../assets/images/abraao.jpg"
 import ifn from "../../assets/images/infinity.jpg"
 import resed from "../../assets/images/marina.jpg"
@@ -20,7 +20,7 @@ const lancamentos = [
     preco: 1450000,
     quartos: 3,
     area: 140,
-    imagem: {aurora},
+    imagem: aurora,
     selo: "Lançamento",
   },
   {
@@ -30,7 +30,7 @@ const lancamentos = [
     preco: 890000,
     quartos: 3,
     area: 125,
-    imagem: {dvert},
+    imagem: dvert,
     selo: "Em construção",
   },
   {
@@ -40,7 +40,7 @@ const lancamentos = [
     preco: 1320000,
     quartos: 3,
     area: 160,
-    imagem: {sky},
+    imagem: sky,
     selo: "Exclusivo",
   },
   {
@@ -50,7 +50,7 @@ const lancamentos = [
     preco: 2190000,
     quartos: 4,
     area: 190,
-    imagem: {ocn},
+    imagem: ocn,
     selo: "Vista para o mar",
   },
 ];
@@ -58,14 +58,14 @@ const lancamentos = [
 const imoveis = [
   {
     id: 5,
-    nome: "Residencial Saco Grande",
+    nome: "Casa Saco Grande",
     cidade: "Florianópolis",
-    tipo: "Apartamento",
+    tipo: "Casa",
     quartos: 3,
     area: 140,
     vagas: 2,
     preco: 1450000,
-    imagem: {saco},
+    imagem: saco,
   },
   {
     id: 6,
@@ -76,18 +76,18 @@ const imoveis = [
     area: 280,
     vagas: 3,
     preco: 2490000,
-    imagem: {bosque},
+    imagem: bosque,
   },
   {
     id: 7,
     nome: "Edifício Agronômica",
     cidade: "Florianópolis",
-    tipo: "Apartamento",
+    tipo: "Cobertura",
     quartos: 3,
     area: 115,
     vagas: 2,
     preco: 1790000,
-    imagem: {agro},
+    imagem: agro,
   },
   {
     id: 8,
@@ -98,7 +98,7 @@ const imoveis = [
     area: 410,
     vagas: 4,
     preco: 2499000,
-    imagem: {trindade},
+    imagem: trindade,
   },
   {
     id: 9,
@@ -109,7 +109,7 @@ const imoveis = [
     area: 67,
     vagas: 1,
     preco: 770000,
-    imagem: {abraa},
+    imagem: abraa,
   },
   {
     id: 10,
@@ -120,7 +120,7 @@ const imoveis = [
     area: 260,
     vagas: 3,
     preco: 3750000,
-    imagem: {ifn},
+    imagem: ifn,
   },
   {
     id: 11,
@@ -131,18 +131,18 @@ const imoveis = [
     area: 92,
     vagas: 2,
     preco: 980000,
-    imagem: {resed},
+    imagem: resed,
   },
   {
     id: 12,
-    nome: "Casa Jardim Atlântico",
+    nome: "Residencial Jardim Atlântico",
     cidade: "Florianópolis",
-    tipo: "Casa",
+    tipo: "Apartamento",
     quartos: 3,
     area: 180,
     vagas: 2,
     preco: 1190000,
-    imagem: {atlantida},
+    imagem: atlantida,
   },
 ];
 
