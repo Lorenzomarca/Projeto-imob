@@ -1,28 +1,25 @@
 
+import { useState } from "react";
 import "./Header.css";
 import logo from "../../assets/images/Emblema Black Dragons em Fundo Transparente.png";
-import { useState } from "react";
 
-function Header() {
+export default function Header() {
   const [menuAberto, setMenuAberto] = useState(false);
 
-  const fecharMenu = () => setMenuAberto(false);
+  function fecharMenu() {
+    setMenuAberto(false);
+  }
 
   return (
     <header className="lux-header">
       <div className="lux-header-inner">
-
         <a
-          href="#inicio"
           className="lux-brand"
-          aria-label="Black Dragons Imobiliária - Início"
+          href="#inicio"
           onClick={fecharMenu}
+          aria-label="Black Dragons Imobiliária - início"
         >
-          <img
-            src={logo}
-            alt="Black Dragons"
-            className="lux-logo"
-          />
+          <img className="lux-logo" src={logo} alt="Black Dragons" />
 
           <span className="lux-brand-divider" />
 
@@ -33,56 +30,38 @@ function Header() {
         </a>
 
         <button
+          className={`lux-menu-button ${menuAberto ? "open" : ""}`}
           type="button"
-          className={`lux-menu-button ${
-            menuAberto ? "open" : ""
-          }`}
-          onClick={() => setMenuAberto(!menuAberto)}
           aria-label={menuAberto ? "Fechar menu" : "Abrir menu"}
           aria-expanded={menuAberto}
           aria-controls="lux-navigation"
+          onClick={() => setMenuAberto(!menuAberto)}
         >
           <span />
           <span />
         </button>
 
         <nav
+          className={`lux-navigation ${menuAberto ? "visible" : ""}`}
           id="lux-navigation"
-          className={`lux-navigation ${
-            menuAberto ? "visible" : ""
-          }`}
+          aria-label="Navegação principal"
         >
-          <a href="#inicio" onClick={fecharMenu}>
-            Início
-          </a>
-
-          <a href="#catalogo" onClick={fecharMenu}>
-            Imóveis
-          </a>
-
-          <a href="#sobre" onClick={fecharMenu}>
-            Sobre nós
-          </a>
-
-          <a href="#contato" onClick={fecharMenu}>
-            Contato
-          </a>
+          <a href="#inicio" onClick={fecharMenu}>Início</a>
+          <a href="#catalogo" onClick={fecharMenu}>Imóveis</a>
+          <a href="#sobre" onClick={fecharMenu}>Sobre nós</a>
 
           <a
-            href="#catalogo"
             className="lux-cta"
+            href="#contato"
             onClick={fecharMenu}
           >
-            <span className="lux-cta-icon">↗</span>
-            <span>Explorar imóveis</span>
+            <span>Fale com um especialista</span>
+            <span className="lux-cta-icon" aria-hidden="true">↗</span>
           </a>
         </nav>
-
       </div>
 
       <div className="lux-bottom-border" />
     </header>
   );
 }
-
-export default Header;
