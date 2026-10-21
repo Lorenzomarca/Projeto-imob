@@ -59,10 +59,10 @@ O **projeto-imobiliaria** é uma interface web de uma imobiliária, desenvolvida
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/Lorenzomarca/projeto-imobiliaria.git
+git clone https://github.com/Lorenzomarca/projeto-imob.git
 
 # 2. Acesse a pasta do projeto
-cd projeto-imobiliaria
+cd projeto-imob
 
 # 3. Instale as dependências
 npm install
