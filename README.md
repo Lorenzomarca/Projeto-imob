@@ -6,7 +6,7 @@ Projeto desenvolvido para a **Feira de Ciências do SENAI**, com o objetivo de c
 
 ## 📖 Sobre o projeto
 
-O **projeto-imobiliaria** é uma interface web de uma imobiliária, desenvolvida **apenas com front-end** para fins de apresentação na feira. Não há back-end nem banco de dados: os dados exibidos são fictícios e servem para demonstrar o design e a navegação do sistema.
+O **projeto-imob** é uma interface web de uma imobiliária, desenvolvida **apenas com front-end** para fins de apresentação na feira. Não há back-end nem banco de dados: os dados exibidos são fictícios e servem para demonstrar o design e a navegação do sistema.
 
 ## 🎯 Objetivos
 
