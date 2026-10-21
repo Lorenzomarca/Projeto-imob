@@ -1,0 +1,587 @@
+
+/* ==========================================
+   BLACK DRAGONS IMOB
+   DETALHES DO IMÓVEL — PREMIUM
+   ========================================== */
+
+.property-details-page {
+  --details-bg: #09090a;
+  --details-panel: #111214;
+  --details-text: #f5f5f5;
+  --details-muted: #a6a6ab;
+  --details-silver: #d9dbe0;
+  --details-border: rgba(255, 255, 255, 0.11);
+
+  min-height: 70vh;
+  padding: 42px 0 100px;
+  background: var(--details-bg);
+  color: var(--details-text);
+  box-sizing: border-box;
+}
+
+.property-details-page *,
+.property-details-page *::before,
+.property-details-page *::after {
+  box-sizing: border-box;
+}
+
+.details-container {
+  width: min(calc(100% - 64px), 1380px);
+  margin: 0 auto;
+}
+
+/* BOTÃO VOLTAR */
+
+.details-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 38px;
+  padding: 10px 0;
+  border: 0;
+  background: transparent;
+  color: var(--details-muted);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.details-back span {
+  font-size: 20px;
+  transition: transform 0.25s ease;
+}
+
+.details-back:hover {
+  color: var(--details-silver);
+}
+
+.details-back:hover span {
+  transform: translateX(-4px);
+}
+
+/* CABEÇALHO */
+
+.details-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.details-heading-info {
+  min-width: 0;
+}
+
+.details-eyebrow {
+  display: block;
+  margin-bottom: 13px;
+  color: var(--details-silver);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.details-heading h1 {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 500;
+  letter-spacing: -1.6px;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.details-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 13px 0 0;
+  color: var(--details-muted);
+  font-size: 14px;
+}
+
+.details-location span {
+  color: var(--details-silver);
+  font-size: 18px;
+}
+
+.details-price {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 3px;
+}
+
+.details-price span {
+  color: var(--details-muted);
+  font-size: 12px;
+}
+
+.details-price strong {
+  color: var(--details-text);
+  font-size: clamp(20px, 2.5vw, 30px);
+  font-weight: 500;
+  letter-spacing: -0.6px;
+}
+
+/* ==========================================
+   GALERIA PREMIUM
+   ========================================== */
+
+.details-gallery {
+  width: 100%;
+  margin: 0 auto 58px;
+  min-width: 0;
+}
+
+/* Moldura principal: fotos verticais, horizontais
+   e panorâmicas ficam centralizadas sem distorção. */
+
+.details-main-photo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: clamp(320px, 48vw, 650px);
+  padding: 12px;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(48, 48, 54, 0.42) 0%,
+      rgba(17, 17, 19, 0.96) 68%,
+      #0c0c0e 100%
+    );
+  border: 1px solid rgba(217, 219, 224, 0.16);
+  border-radius: 16px;
+  box-shadow:
+    0 24px 65px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+/* A imagem nunca é esticada ou cortada aqui. */
+
+.details-main-photo > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 8px;
+  animation: details-photo-enter 0.3s ease;
+}
+
+@keyframes details-photo-enter {
+  from {
+    opacity: 0.55;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Contador de fotos */
+
+.details-photo-counter {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  background: rgba(9, 9, 10, 0.78);
+  color: #f5f5f5;
+  font-size: 11px;
+  letter-spacing: 1px;
+  backdrop-filter: blur(12px);
+}
+
+/* Estado sem foto */
+
+.details-no-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+  color: var(--details-muted);
+}
+
+.details-no-photo span {
+  color: var(--details-silver);
+  font-size: 42px;
+}
+
+.details-no-photo p {
+  margin: 0;
+  font-size: 13px;
+}
+
+/* MINIATURAS */
+
+.details-thumbnails {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 2px 2px 8px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #45454a #151517;
+}
+
+.details-thumbnails button {
+  position: relative;
+  flex: 0 0 124px;
+  width: 124px;
+  height: 82px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9px;
+  background: #151517;
+  opacity: 0.68;
+  cursor: pointer;
+  transition:
+    opacity 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.details-thumbnails button:hover {
+  opacity: 0.95;
+  transform: translateY(-2px);
+}
+
+.details-thumbnails button.selected {
+  border-color: var(--details-silver);
+  opacity: 1;
+  box-shadow: 0 0 0 1px rgba(217, 219, 224, 0.22);
+}
+
+.details-thumbnails button.selected::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--details-silver);
+  content: "";
+}
+
+.details-thumbnails img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.details-thumbnails button:focus-visible,
+.details-back:focus-visible,
+.details-whatsapp:focus-visible {
+  outline: 2px solid var(--details-silver);
+  outline-offset: 4px;
+}
+
+/* ==========================================
+   INFORMAÇÕES DO IMÓVEL
+   ========================================== */
+
+.details-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.8fr);
+  gap: clamp(32px, 5vw, 70px);
+  align-items: start;
+}
+
+.details-information,
+.details-contact {
+  min-width: 0;
+}
+
+.details-information h2,
+.details-contact h2 {
+  margin: 0 0 18px;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 500;
+  letter-spacing: -0.8px;
+  line-height: 1.25;
+}
+
+.details-description {
+  max-width: 760px;
+  margin: 0;
+  color: var(--details-muted);
+  font-size: 14px;
+  line-height: 1.95;
+  overflow-wrap: anywhere;
+}
+
+.details-information .details-subtitle {
+  margin-top: 42px;
+  margin-bottom: 22px;
+  font-size: 24px;
+}
+
+/* CARACTERÍSTICAS */
+
+.details-features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  overflow: hidden;
+  border-top: 1px solid var(--details-border);
+  border-left: 1px solid var(--details-border);
+  border-radius: 8px 0 0 0;
+}
+
+.details-features > div {
+  min-width: 0;
+  min-height: 124px;
+  padding: 22px;
+  border-right: 1px solid var(--details-border);
+  border-bottom: 1px solid var(--details-border);
+  background: rgba(255, 255, 255, 0.012);
+  transition: background 0.25s ease;
+}
+
+.details-features > div:hover {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.details-features > div > span {
+  color: var(--details-silver);
+  font-size: 22px;
+}
+
+.details-features p {
+  margin: 12px 0 5px;
+  color: var(--details-muted);
+  font-size: 12px;
+}
+
+.details-features strong {
+  color: var(--details-text);
+  font-size: 15px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+/* CARTÃO DE CONTATO */
+
+.details-contact {
+  position: sticky;
+  top: 110px;
+  padding: 30px;
+  border: 1px solid rgba(217, 219, 224, 0.15);
+  border-radius: 12px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.035),
+      transparent 65%
+    ),
+    var(--details-panel);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.16);
+}
+
+.details-contact .details-eyebrow {
+  margin-bottom: 16px;
+}
+
+.details-contact h2 {
+  font-size: clamp(23px, 2.5vw, 29px);
+}
+
+.details-contact > p {
+  color: var(--details-muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* BOTÃO WHATSAPP */
+
+.details-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  margin-top: 24px;
+  padding: 16px 18px;
+  border: 1px solid var(--details-silver);
+  border-radius: 6px;
+  background: linear-gradient(120deg, #e9eaed, #c4c8cf);
+  color: #09090a;
+  text-align: left;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.details-whatsapp span {
+  font-size: 17px;
+  transition: transform 0.25s ease;
+}
+
+.details-whatsapp:hover {
+  transform: translateY(-2px);
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(217, 219, 224, 0.12);
+}
+
+.details-whatsapp:hover span {
+  transform: translate(2px, -2px);
+}
+
+.details-contact .details-contact-note {
+  margin: 22px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--details-border);
+  font-size: 10px;
+  letter-spacing: 0.4px;
+}
+
+/* ==========================================
+   RESPONSIVIDADE
+   ========================================== */
+
+@media (min-width: 1500px) {
+  .details-main-photo {
+    height: 650px;
+  }
+}
+
+@media (max-width: 900px) {
+  .details-content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 34px;
+  }
+
+  .details-contact {
+    position: static;
+  }
+
+  .details-main-photo {
+    height: clamp(300px, 58vw, 520px);
+  }
+}
+
+@media (max-width: 760px) {
+  .property-details-page {
+    padding: 28px 0 60px;
+  }
+
+  .details-container {
+    width: calc(100% - 32px);
+  }
+
+  .details-back {
+    margin-bottom: 28px;
+  }
+
+  .details-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 22px;
+    margin-bottom: 24px;
+  }
+
+  .details-price {
+    gap: 5px;
+  }
+
+  .details-gallery {
+    margin-bottom: 40px;
+  }
+
+  .details-main-photo {
+    height: clamp(250px, 65vw, 440px);
+    padding: 8px;
+    border-radius: 12px;
+  }
+
+  .details-main-photo > img {
+    border-radius: 7px;
+  }
+
+  .details-photo-counter {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .details-thumbnails {
+    gap: 9px;
+    margin-top: 12px;
+  }
+
+  .details-thumbnails button {
+    flex-basis: 100px;
+    width: 100px;
+    height: 70px;
+  }
+
+  .details-contact {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 420px) {
+  .details-container {
+    width: calc(100% - 24px);
+  }
+
+  .details-heading h1 {
+    font-size: 29px;
+    letter-spacing: -0.8px;
+  }
+
+  .details-main-photo {
+    height: 260px;
+    padding: 6px;
+  }
+
+  .details-thumbnails button {
+    flex-basis: 84px;
+    width: 84px;
+    height: 62px;
+  }
+
+  .details-features > div {
+    min-height: 108px;
+    padding: 15px;
+  }
+
+  .details-contact {
+    padding: 21px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .details-main-photo > img {
+    animation: none;
+  }
+
+  .details-back,
+  .details-back span,
+  .details-thumbnails button,
+  .details-features > div,
+  .details-whatsapp,
+  .details-whatsapp span {
+    transition: none;
+  }
+}

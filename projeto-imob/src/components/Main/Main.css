@@ -1763,3 +1763,798 @@
     transition: none;
   }
 }
+
+/* ==========================================
+   BLACK DRAGONS — AJUSTES PREMIUM FINAIS
+   Hero, botões, cards e responsividade
+   ========================================== */
+
+/* Evita que estilos globais deformem os componentes */
+.bd-main,
+.bd-main *,
+.bd-main *::before,
+.bd-main *::after {
+  box-sizing: border-box;
+}
+
+.bd-main button {
+  font-family: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.bd-main button:focus-visible,
+.bd-main a:focus-visible {
+  outline: 2px solid #d9dbe0;
+  outline-offset: 4px;
+}
+
+/* HERO: texto à esquerda e edifício à direita */
+.bd-main .main-hero {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 0;
+  height: auto;
+  overflow: hidden;
+  background: #09090a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+}
+
+/* Desativa o fundo antigo que escurecia o conteúdo */
+.bd-main .main-hero::before {
+  content: none;
+}
+
+/* Layout da nova versão do hero */
+.bd-main .main-hero-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.82fr);
+  align-items: center;
+  gap: clamp(28px, 4vw, 64px);
+  width: 100%;
+  padding: clamp(28px, 4.5vw, 64px);
+}
+
+/* Texto */
+.bd-main .main-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 680px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.bd-main .main-hero-content > * {
+  max-width: 100%;
+}
+
+.bd-main .main-hero h1 {
+  margin: 0;
+  font-size: clamp(36px, 4.5vw, 66px);
+  line-height: 1.08;
+  letter-spacing: -2.4px;
+  font-weight: 500;
+}
+
+.bd-main .main-hero h1 em {
+  color: #c8cbd2;
+  font-style: normal;
+}
+
+.bd-main .main-hero-content > p {
+  max-width: 460px;
+  margin: 22px 0 28px;
+  color: #b8b8bf;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* Remove a logo flutuante antiga do início */
+.bd-main .main-hero-logo {
+  display: none !important;
+}
+
+/* Imagem do edifício */
+.bd-main .main-hero-image {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  height: clamp(300px, 34vw, 460px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 3px;
+  background: #17191e;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.3);
+}
+
+.bd-main .main-hero-image img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.88) contrast(1.03);
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+
+.bd-main .main-hero-image:hover img {
+  transform: scale(1.025);
+  filter: brightness(0.98) contrast(1.03);
+}
+
+.bd-main .main-hero-image-shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    0deg,
+    rgba(7, 8, 10, 0.72),
+    transparent 38%
+  );
+}
+
+.bd-main .main-hero-image-label {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  color: #f1f1f3;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  line-height: 1.6;
+}
+
+.bd-main .main-hero-caption {
+  position: absolute;
+  z-index: 2;
+  right: 22px;
+  bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  pointer-events: none;
+}
+
+/* Botão principal do hero */
+.bd-main .main-hero-button,
+.bd-main .main-contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 48px;
+  padding: 0 21px;
+  border: 1px solid #e7e8ec;
+  border-radius: 3px;
+  background: linear-gradient(135deg, #f5f5f6, #c4c8cf);
+  color: #09090a;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.22s ease,
+    background 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.bd-main .main-hero-button:hover,
+.bd-main .main-contact-button:hover {
+  transform: translateY(-2px);
+  background: #fff;
+  color: #09090a;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+}
+
+.bd-main .main-hero-button span,
+.bd-main .main-contact-button span {
+  font-size: 16px;
+  transition: transform 0.22s ease;
+}
+
+.bd-main .main-hero-button:hover span,
+.bd-main .main-contact-button:hover span {
+  transform: translate(2px, -2px);
+}
+
+/* Botão "Ver mais" nos títulos das seções */
+.bd-main .main-view-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 9px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(217, 219, 224, 0.4);
+  border-radius: 0;
+  background: transparent;
+  color: #e2e3e7;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.bd-main .main-view-more:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+/* Botão de busca */
+.bd-main .main-search-button {
+  min-width: 125px;
+  min-height: 54px;
+  padding: 0 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 0;
+  background: linear-gradient(120deg, #f1f2f4, #c4c8cf 55%, #e5e7eb);
+  color: #09090a;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.bd-main .main-search-button:hover {
+  filter: brightness(1.1);
+}
+
+/* Botões de favoritos */
+.bd-main .property-favorite {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  background: rgba(9, 9, 10, 0.88);
+  color: #f4f4f5;
+  font-size: 21px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.bd-main .property-favorite:hover {
+  background: #e5e6e9;
+  color: #09090a;
+}
+
+.bd-main .property-favorite.is-favorite {
+  background: #e6e7eb;
+  color: #a31c2a;
+}
+
+/* Botão "Ver mais imóveis" */
+.bd-main .more-properties-action button {
+  min-height: 46px;
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  background: transparent;
+  color: #e5e6ea;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.22s ease, color 0.22s ease;
+}
+
+.bd-main .more-properties-action button:hover {
+  background: #e5e6ea;
+  color: #09090a;
+}
+
+/* Limpar filtros */
+.bd-main .clear-filters {
+  padding: 10px 0 10px 12px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #c8cad0;
+  font-size: 10px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.bd-main .clear-filters:hover {
+  color: #fff;
+}
+
+/* Botão do estado sem resultados */
+.bd-main .properties-empty button {
+  min-height: 42px;
+  margin-top: 10px;
+  padding: 0 17px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 3px;
+  background: transparent;
+  color: #ededf0;
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.bd-main .properties-empty button:hover {
+  background: #e5e6ea;
+  color: #09090a;
+}
+
+/* Cards: imagens menores e sem deformação */
+.bd-main .launch-image {
+  height: 270px;
+}
+
+.bd-main .property-image {
+  height: 200px;
+}
+
+.bd-main .launch-image img,
+.bd-main .property-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Tablet */
+@media (max-width: 850px) {
+  .bd-main .main-hero-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.8fr);
+    gap: 24px;
+    padding: 30px;
+  }
+
+  .bd-main .main-hero h1 {
+    font-size: clamp(34px, 5vw, 48px);
+    letter-spacing: -1.7px;
+  }
+
+  .bd-main .main-hero-image {
+    height: 330px;
+  }
+
+  .bd-main .launch-grid,
+  .bd-main .property-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Celular */
+@media (max-width: 600px) {
+  .bd-main .main-hero {
+    width: calc(100% - 28px);
+    margin: 14px auto 0;
+  }
+
+  .bd-main .main-hero-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    padding: 28px 20px 40px;
+  }
+
+  .bd-main .main-hero-content {
+    width: 100%;
+  }
+
+  .bd-main .main-hero h1 {
+    font-size: clamp(35px, 9vw, 48px);
+    letter-spacing: -1.7px;
+  }
+
+  .bd-main .main-hero-content > p {
+    font-size: 12px;
+  }
+
+  .bd-main .main-hero-image {
+    height: 260px;
+  }
+
+  .bd-main .main-hero-caption {
+    right: 14px;
+    bottom: 12px;
+    font-size: 7px;
+  }
+
+  .bd-main .main-search-button {
+    width: 100%;
+  }
+
+  .bd-main .main-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .bd-main .launch-grid,
+  .bd-main .property-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bd-main .launch-image {
+    height: 260px;
+  }
+
+  .bd-main .property-image {
+    height: 220px;
+  }
+
+  .bd-main .main-view-more {
+    min-height: 38px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bd-main *,
+  .bd-main *::before,
+  .bd-main *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* =========================================
+   AJUSTES FINAIS — HERO, CARDS E BOTÕES
+   Mantém os cards originais e suas proporções
+========================================= */
+.bd-main .main-hero {
+  width: min(calc(100% - 64px), 1380px);
+  min-height: 0;
+  height: auto;
+  margin: 30px auto 0;
+  border: 1px solid rgba(217, 219, 224, .18);
+  border-radius: 8px;
+  background: radial-gradient(ellipse at 80% 40%, rgba(217,219,224,.07), transparent 45%), #09090a;
+}
+.bd-main .main-hero::before { content: none; }
+.bd-main .main-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(280px, .96fr);
+  align-items: center;
+  gap: clamp(28px, 4.4vw, 64px);
+  min-height: 0;
+  padding: clamp(28px, 4.2vw, 58px);
+}
+.bd-main .main-hero-content {
+  width: 100%;
+  max-width: 620px;
+  margin: 0;
+  padding: 0;
+}
+.bd-main .main-hero h1 { font-size: clamp(38px, 4.6vw, 64px); letter-spacing: -2.4px; }
+.bd-main .main-hero-content > p { max-width: 460px; margin: 21px 0 27px; }
+.bd-main .main-hero-image {
+  align-self: center;
+  width: 100%;
+  min-height: 0;
+  height: clamp(260px, 30vw, 390px);
+  padding: 6px;
+  border: 1px solid rgba(217,219,224,.38);
+  border-radius: 8px;
+  background: linear-gradient(145deg,#292a2e,#0d0d0f);
+  box-shadow: 0 18px 42px rgba(0,0,0,.32), inset 0 1px rgba(255,255,255,.05);
+}
+.bd-main .main-hero-image img { position: static; display:block; width:100%; height:100%; border-radius:4px; object-fit:cover; object-position:center 45%; }
+.bd-main .main-hero-image-shade { inset:6px; border-radius:4px; }
+.bd-main .main-hero-image-label { right:16px; bottom:15px; left:16px; font-size:8px; letter-spacing:1.4px; }
+.bd-main .main-hero-button,
+.bd-main .main-search-button,
+.bd-main .property-details-button,
+.bd-main .more-properties-action button,
+.bd-main .properties-empty button,
+.bd-main .main-contact-banner > div > a,
+.bd-main .main-contact-button {
+  position: relative;
+  border-radius: 3px;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease, color .22s ease, filter .22s ease;
+}
+.bd-main .main-hero-button:hover,
+.bd-main .property-details-button:hover,
+.bd-main .main-contact-button:hover { transform: translateY(-2px); box-shadow: 0 9px 24px rgba(217,219,224,.12); }
+.bd-main .property-photo-button { position:absolute; inset:0; width:100%; height:100%; padding:0; border:0; background:transparent; cursor:pointer; }
+.bd-main .property-photo-button img { width:100%; height:100%; object-fit:cover; }
+.bd-main .property-info { display:flex; flex-direction:column; }
+.bd-main .property-details-button {
+  width:100%; min-height:43px; margin-top:17px; padding:0 15px;
+  display:inline-flex; align-items:center; justify-content:space-between; gap:14px;
+  border:1px solid rgba(217,219,224,.48); background:linear-gradient(135deg,#e6e7eb,#c1c4cc);
+  color:#09090a; font-size:10px; font-weight:800; cursor:pointer;
+}
+.bd-main .property-details-button span { font-size:16px; transition:transform .2s ease; }
+.bd-main .property-details-button:hover span { transform:translate(2px,-2px); }
+.bd-main .property-card { border-radius:5px; }
+.bd-main .launch-image { width:100%; padding:0; border:0; text-align:left; cursor:pointer; }
+.bd-main .launch-card { border-radius:5px; }
+.bd-main .main-search-button { border-left:1px solid rgba(255,255,255,.12); }
+.bd-main .main-search-button:hover { filter:brightness(1.08); }
+.bd-main .main-view-more:hover { transform:translateY(-1px); }
+.bd-main .clear-filters { border:0; background:transparent; color:#c9cbd1; cursor:pointer; }
+.bd-main .clear-filters:hover { color:#fff; }
+@media (max-width: 850px) {
+  .bd-main .main-hero { width:calc(100% - 40px); }
+  .bd-main .main-hero-layout { grid-template-columns:minmax(0,1fr) minmax(240px,.9fr); gap:24px; padding:28px; }
+  .bd-main .main-hero-image { height:290px; }
+}
+@media (max-width: 650px) {
+  .bd-main .main-hero { width:calc(100% - 28px); margin-top:18px; }
+  .bd-main .main-hero-layout { grid-template-columns:minmax(0,1fr); gap:24px; padding:25px 20px; }
+  .bd-main .main-hero-content { padding:0; }
+  .bd-main .main-hero h1 { font-size:clamp(35px,9vw,48px); letter-spacing:-1.5px; }
+  .bd-main .main-hero-image { height:clamp(220px,60vw,320px); min-height:0; }
+  .bd-main .launch-grid, .bd-main .property-grid { grid-template-columns:minmax(0,1fr); }
+  .bd-main .property-image { height:clamp(220px,62vw,310px); }
+}
+
+/* ==========================================
+   CORREÇÕES — BLACK DRAGONS IMOB
+   ========================================== */
+
+/* Evita faixas brancas nas bordas da página */
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #09090a;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Fundo principal sem espaços extras */
+.bd-main {
+  display: flow-root;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: clip;
+  background: #09090a;
+  color: #f5f5f5;
+}
+
+/* Corrige o espaço entre o cabeçalho e o banner */
+.bd-main .main-hero {
+  margin-top: 0;
+}
+
+/* Mantém a imagem do banner bem enquadrada */
+.bd-main .main-hero-layout {
+  width: min(100% - 80px, 1240px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(32px, 6vw, 80px);
+}
+
+.bd-main .main-hero-content {
+  width: 100%;
+  margin: 0;
+}
+
+.bd-main .main-hero-image {
+  position: relative;
+  min-width: 0;
+  height: clamp(250px, 28vw, 360px);
+  overflow: hidden;
+  border: 1px solid rgba(217, 219, 224, 0.38);
+  border-radius: 9px;
+  background: #111113;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.28);
+}
+
+.bd-main .main-hero-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.bd-main .main-hero-image-shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.6),
+    transparent 45%
+  );
+}
+
+.bd-main .main-hero-image-label {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: #f0f0f2;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+/* Corrige o botão real usado no JSX dos cards */
+.bd-main .property-image {
+  position: relative;
+  isolation: isolate;
+}
+
+.bd-main .property-image .property-photo-button {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.bd-main .property-image .property-photo-button img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.bd-main .property-card:hover .property-photo-button img {
+  transform: scale(1.045);
+}
+
+/* Os controles ficam acima da foto e continuam clicáveis */
+.bd-main .property-status {
+  z-index: 2;
+}
+
+.bd-main .property-favorite {
+  z-index: 3;
+}
+
+/* Botão de detalhes mais consistente com o visual premium */
+.bd-main .property-details-button {
+  width: 100%;
+  min-height: 44px;
+  margin-top: 20px;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border: 1px solid rgba(217, 219, 224, 0.42);
+  border-radius: 3px;
+  background: linear-gradient(120deg, #e9eaed, #c4c8cf, #f0f1f3);
+  color: #09090a;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.bd-main .property-details-button span {
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.bd-main .property-details-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.22);
+}
+
+.bd-main .property-details-button:hover span {
+  transform: translate(2px, -2px);
+}
+
+/* Imagens e cards sem deformar o layout */
+.bd-main .launch-card,
+.bd-main .property-card {
+  min-width: 0;
+}
+
+.bd-main .launch-image,
+.bd-main .property-photo-button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 760px) {
+  .bd-main .main-hero {
+    height: auto;
+    min-height: 0;
+  }
+
+  .bd-main .main-hero-layout {
+    width: calc(100% - 36px);
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    padding: 55px 0 40px;
+  }
+
+  .bd-main .main-hero-content {
+    padding: 0;
+  }
+
+  .bd-main .main-hero h1 {
+    font-size: clamp(38px, 10vw, 56px);
+    letter-spacing: -1.8px;
+  }
+
+  .bd-main .main-hero-image {
+    height: clamp(220px, 62vw, 340px);
+  }
+
+  .bd-main .main-section {
+    width: calc(100% - 36px);
+    padding-top: 65px;
+    padding-bottom: 65px;
+  }
+
+  .bd-main .launch-grid,
+  .bd-main .property-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .bd-main .launch-image {
+    height: 240px;
+  }
+
+  .bd-main .property-image {
+    height: 190px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bd-main .launch-grid,
+  .bd-main .property-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bd-main .launch-image {
+    height: 280px;
+  }
+
+  .bd-main .property-image {
+    height: 230px;
+  }
+}
