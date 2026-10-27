@@ -79,8 +79,8 @@ Depois, abra o endereço exibido no terminal (geralmente `http://localhost:5173`
 projeto-imobiliaria/
 ├── public/         # Arquivos estáticos
 ├── src/
-│   ├── components/ # Componentes React
-│   ├── styles/     # Arquivos CSS
+│   ├── components/ # Componentes React e Css
+│   ├
 │   └── App.jsx
 ├── package.json
 └── README.md
