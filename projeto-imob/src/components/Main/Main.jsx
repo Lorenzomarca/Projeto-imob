@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { useAuth } from "../../context/AuthContext";
 import "./Main.css";
 
 import imagemEdificio from "../../assets/images/foot-fundologo.jpg";
@@ -17,14 +18,14 @@ import ifn from "../../assets/images/infinity.jpg";
 import resed from "../../assets/images/marina.jpg";
 import atlantida from "../../assets/images/jardim-atlantico.jpg";
 
-const lancamentos = [
+export const lancamentos = [
   { id: 1, nome: "Aurora Residence", cidade: "Balneário Camboriú", preco: 1450000, quartos: 3, area: 140, imagem: aurora, selo: "Lançamento" },
   { id: 2, nome: "D'Vert Residence", cidade: "Itajaí", preco: 890000, quartos: 3, area: 125, imagem: dvert, selo: "Em construção" },
   { id: 3, nome: "Skyline Tower", cidade: "Itapema", preco: 1320000, quartos: 3, area: 160, imagem: sky, selo: "Exclusivo" },
   { id: 4, nome: "Ocean View", cidade: "Bombinhas", preco: 2190000, quartos: 4, area: 190, imagem: ocn, selo: "Vista para o mar" },
 ];
 
-const imoveis = [
+export const imoveis = [
   { id: 5, nome: "Casa Saco Grande", cidade: "Florianópolis", tipo: "Casa", quartos: 3, area: 140, vagas: 2, preco: 1450000, imagem: saco },
   { id: 6, nome: "Casa Bosque Premium", cidade: "Florianópolis", tipo: "Casa", quartos: 4, area: 280, vagas: 3, preco: 2490000, imagem: bosque },
   { id: 7, nome: "Edifício Agronômica", cidade: "Florianópolis", tipo: "Cobertura", quartos: 3, area: 115, vagas: 2, preco: 1790000, imagem: agro },
@@ -39,7 +40,7 @@ const imoveis = [
   { id: 16, nome: "Ocean View", cidade: "Bombinhas", tipo: "Apartamento", quartos: 4, area: 190, vagas: 2, preco: 2190000, imagem: ocn, descricao: "Imóvel amplo para aproveitar o litoral, com espaços pensados para receber família e amigos." },
 ];
 
-const formatarPreco = (valor) =>
+export const formatarPreco = (valor) =>
   valor.toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL",
@@ -84,7 +85,7 @@ function CardLancamento({ imovel, onVerImovel }) {
   );
 }
 
-function CardImovel({ imovel, favorito, alternarFavorito, onVerImovel }) {
+export function CardImovel({ imovel, favorito, alternarFavorito, onVerImovel }) {
   return (
     <article className="property-card">
       <div className="property-image">
@@ -142,8 +143,8 @@ function CardImovel({ imovel, favorito, alternarFavorito, onVerImovel }) {
   );
 }
 
-function Main({ onSelecionarImovel }) {
-  const [favoritos, setFavoritos] = useState([]);
+function Main({ onSelecionarImovel, onLogin }) {
+  const { favoritos, alternarFavorito: alternar } = useAuth();
   const [cidade, setCidade] = useState("");
   const [tipo, setTipo] = useState("");
   const [busca, setBusca] = useState("");
@@ -156,12 +157,9 @@ function Main({ onSelecionarImovel }) {
     });
   };
 
+  // Sem login, o coração leva para a tela de entrar
   const alternarFavorito = (id) => {
-    setFavoritos((atuais) =>
-      atuais.includes(id)
-        ? atuais.filter((item) => item !== id)
-        : [...atuais, id]
-    );
+    if (!alternar(id)) onLogin?.();
   };
 
   const verImovel = (imovel) => {

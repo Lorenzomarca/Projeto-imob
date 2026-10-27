@@ -2558,3 +2558,65 @@ body {
     height: 230px;
   }
 }
+
+
+/* =========================================
+   IMAGENS DOS CARDS — MELHORIA FINAL
+   (fica no fim do arquivo para vencer os overrides antigos)
+========================================= */
+
+.bd-main .property-card .property-image,
+.property-card .property-image {
+  height: auto !important;
+  aspect-ratio: 4 / 3;
+  background: #151517;
+}
+
+.bd-main .property-card .property-photo-button img,
+.property-card .property-photo-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.4s ease;
+}
+
+.bd-main .property-card:hover .property-photo-button img {
+  transform: scale(1.06);
+  filter: brightness(1.06);
+}
+
+/* degradê inferior para dar profundidade à foto */
+.bd-main .property-card .property-image::after,
+.property-card .property-image::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 45%;
+  background: linear-gradient(to top, rgba(9, 9, 10, 0.55), transparent);
+  pointer-events: none;
+}
+
+.bd-main .property-card .property-status,
+.bd-main .property-card .property-favorite,
+.property-card .property-status,
+.property-card .property-favorite {
+  z-index: 2;
+}
+
+.bd-main .property-card .property-favorite,
+.property-card .property-favorite {
+  background: rgba(9, 9, 10, 0.55);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.bd-main .property-card .property-favorite:hover,
+.property-card .property-favorite:hover { transform: scale(1.1); }
+
+.bd-main .launch-image img { object-fit: cover; object-position: center; }
+
+@media (max-width: 760px) {
+  .bd-main .property-card .property-image { height: auto !important; }
+}

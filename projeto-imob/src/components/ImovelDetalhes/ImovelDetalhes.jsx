@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from "react";
 import "./ImovelDetalhes.css";
+import { useAuth } from "../../context/AuthContext";
 
 function formatarPreco(valor) {
   const preco = Number(valor);
@@ -16,7 +17,13 @@ function formatarPreco(valor) {
   });
 }
 
-function ImovelDetalhes({ imovel, onVoltar }) {
+function ImovelDetalhes({ imovel, onVoltar, onLogin }) {
+  const { favoritos, alternarFavorito } = useAuth();
+  const favorito = favoritos.includes(imovel.id);
+  const clicarFavorito = () => {
+    if (!alternarFavorito(imovel.id)) onLogin?.();
+  };
+
   const imagens =
     imovel.imagens?.length > 0
       ? imovel.imagens
@@ -75,6 +82,14 @@ function ImovelDetalhes({ imovel, onVoltar }) {
           <div className="details-price">
             <span>Valor do imóvel</span>
             <strong>{formatarPreco(imovel.preco)}</strong>
+            <button
+              type="button"
+              className={`details-favorite ${favorito ? "is-favorite" : ""}`}
+              onClick={clicarFavorito}
+              aria-pressed={favorito}
+            >
+              {favorito ? "♥ Nos favoritos" : "♡ Favoritar"}
+            </button>
           </div>
         </header>
 

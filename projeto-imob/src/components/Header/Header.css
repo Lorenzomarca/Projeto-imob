@@ -442,3 +442,57 @@
     transition: none !important;
   }
 }
+
+/* =====================================
+   FAVORITOS / LOGIN NO HEADER
+===================================== */
+
+.lux-nav-btn {
+  position: relative;
+  padding: 10px 0;
+  border: 0;
+  background: transparent;
+  color: #b8b8bd;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.lux-nav-btn:hover { color: #fff; }
+
+.lux-nav-count {
+  margin-left: 7px;
+  padding: 2px 7px;
+  border-radius: 20px;
+  background: #d9dbe0;
+  color: #09090a;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.lux-user { display: flex; align-items: center; gap: 18px; }
+
+.lux-user-name {
+  color: #d9dbe0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.lux-nav-btn:focus-visible { outline: 2px solid #e3e5ea; outline-offset: 4px; }
+
+@media (max-width: 720px) {
+  .lux-nav-btn {
+    width: 100%;
+    padding: 17px 2px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    font-size: 13px;
+  }
+  .lux-user { flex-direction: column; align-items: stretch; gap: 0; }
+  .lux-user-name { padding: 17px 2px 0; }
+}
