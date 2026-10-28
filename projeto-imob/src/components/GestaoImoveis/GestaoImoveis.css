@@ -1,0 +1,218 @@
+
+.gestao-page {
+  min-height: 70vh;
+  padding: 80px 24px;
+  background: #09090a;
+  color: #f5f5f5;
+  font-family: Montserrat, sans-serif;
+}
+
+.gestao-container {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+}
+
+.gestao-eyebrow {
+  color: #d9dbe0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.gestao-container h1 {
+  margin: 18px 0;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+}
+
+.gestao-container h2,
+.gestao-card h2 {
+  margin: 14px 0;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+}
+
+.gestao-container > p,
+.gestao-card p {
+  color: #a6a6ab;
+  line-height: 1.8;
+}
+
+.gestao-intro {
+  margin-bottom: 28px;
+}
+
+.gestao-card {
+  margin: 32px 0;
+  padding: 32px;
+  background: #111113;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 18px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.15);
+}
+
+.gestao-section-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.gestao-section-heading > div {
+  flex: 1;
+}
+
+.gestao-users {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.gestao-user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px;
+  background: #09090a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+
+.gestao-user-info h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.gestao-user-date {
+  color: #a6a6ab;
+  font-size: 0.8rem;
+}
+
+.gestao-user-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gestao-role {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 999px;
+  color: #d9dbe0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.gestao-role-administrador {
+  background: rgba(217, 219, 224, 0.12);
+}
+
+.gestao-role-corretor {
+  background: rgba(120, 170, 140, 0.12);
+}
+
+.gestao-role-cliente {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.gestao-status {
+  display: inline-block;
+  margin-top: 12px;
+  color: #d9dbe0;
+  font-size: 0.85rem;
+}
+
+.gestao-message {
+  padding: 12px 14px;
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+
+.gestao-error {
+  color: #ffb4b4 !important;
+  background: rgba(180, 40, 40, 0.12);
+  border: 1px solid rgba(255, 100, 100, 0.25);
+}
+
+.gestao-success {
+  color: #b8e8c5 !important;
+  background: rgba(40, 150, 80, 0.12);
+  border: 1px solid rgba(100, 220, 140, 0.2);
+}
+
+.gestao-page button {
+  padding: 12px 18px;
+  border: 1px solid #d9dbe0;
+  border-radius: 8px;
+  background: #d9dbe0;
+  color: #09090a;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.gestao-page button:hover:not(:disabled) {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.gestao-page button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.gestao-page .gestao-button-secondary {
+  flex-shrink: 0;
+  background: transparent;
+  color: #d9dbe0;
+}
+
+.gestao-page button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+
+@media (max-width: 700px) {
+  .gestao-page {
+    padding: 48px 18px;
+  }
+
+  .gestao-card {
+    padding: 22px;
+  }
+
+  .gestao-section-heading,
+  .gestao-user {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .gestao-user-actions {
+    justify-content: flex-start;
+  }
+
+  .gestao-section-heading .gestao-button-secondary {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 420px) {
+  .gestao-user-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .gestao-user-actions button {
+    width: 100%;
+  }
+}
