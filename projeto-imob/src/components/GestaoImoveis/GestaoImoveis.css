@@ -216,3 +216,682 @@
     width: 100%;
   }
 }
+
+/* FORMULÁRIO PREMIUM — BLACK DRAGONS IMOB */
+
+.gestao-form {
+  display: grid;
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.gestao-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  color: #d9dbe0;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.gestao-form input,
+.gestao-form select,
+.gestao-form textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 14px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9px;
+  outline: none;
+  background: #09090a;
+  color: #f5f5f5;
+  font: inherit;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gestao-form input::placeholder,
+.gestao-form textarea::placeholder {
+  color: #77777e;
+}
+
+.gestao-form input:focus,
+.gestao-form select:focus,
+.gestao-form textarea:focus {
+  border-color: #d9dbe0;
+  box-shadow: 0 0 0 3px rgba(217, 219, 224, 0.09);
+}
+
+.gestao-form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.gestao-form input[type="file"] {
+  padding: 12px;
+  border-style: dashed;
+  cursor: pointer;
+}
+
+.gestao-form input[type="file"]::file-selector-button {
+  margin-right: 12px;
+  padding: 9px 12px;
+  border: 0;
+  border-radius: 6px;
+  background: #d9dbe0;
+  color: #09090a;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.gestao-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.gestao-form-grid-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.gestao-file-name {
+  color: #a6a6ab;
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
+
+.gestao-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 8px;
+}
+
+.gestao-form-actions button {
+  min-width: 200px;
+  padding: 15px 22px;
+}
+
+.gestao-form-actions button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+@media (max-width: 650px) {
+  .gestao-form-grid,
+  .gestao-form-grid-three {
+    grid-template-columns: 1fr;
+  }
+
+  .gestao-form-actions {
+    justify-content: stretch;
+  }
+
+  .gestao-form-actions button {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* GESTÃO DE ANÚNCIOS — BLACK DRAGONS IMOB */
+
+.gestao-imoveis-lista {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.gestao-imovel-item {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+  padding: 16px;
+  background: #09090a;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 13px;
+}
+
+.gestao-imovel-foto {
+  width: 140px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 9px;
+  background: #171719;
+}
+
+.gestao-sem-foto {
+  display: grid;
+  place-items: center;
+  color: #a6a6ab;
+  font-size: 0.8rem;
+}
+
+.gestao-imovel-dados {
+  min-width: 0;
+}
+
+.gestao-imovel-dados h3 {
+  margin: 0 0 8px;
+  color: #f5f5f5;
+  overflow-wrap: anywhere;
+}
+
+.gestao-imovel-dados p {
+  margin: 0 0 10px;
+  color: #a6a6ab;
+  overflow-wrap: anywhere;
+}
+
+.gestao-imovel-dados strong {
+  color: #d9dbe0;
+}
+
+.gestao-imovel-acoes {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.gestao-page .gestao-button-secondary {
+  background: transparent;
+  color: #d9dbe0;
+  border-color: rgba(217, 219, 224, 0.45);
+}
+
+.gestao-page .gestao-button-danger {
+  background: transparent;
+  color: #ffb4b4;
+  border-color: rgba(255, 100, 100, 0.4);
+}
+
+.gestao-page .gestao-button-danger:hover:not(:disabled) {
+  background: rgba(180, 40, 40, 0.14);
+}
+
+.gestao-foto-atual {
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+  margin-top: 22px;
+  color: #a6a6ab;
+  font-size: 0.85rem;
+}
+
+.gestao-foto-atual img {
+  width: min(100%, 320px);
+  max-height: 220px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+}
+
+@media (max-width: 760px) {
+  .gestao-imovel-item {
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .gestao-imovel-foto {
+    width: 100px;
+    height: 100px;
+  }
+
+  .gestao-imovel-acoes {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 420px) {
+  .gestao-imovel-item {
+    grid-template-columns: 1fr;
+  }
+
+  .gestao-imovel-foto {
+    width: 100%;
+    height: 180px;
+  }
+
+  .gestao-imovel-acoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gestao-imovel-acoes button {
+    width: 100%;
+  }
+}
+
+/* MODAL DE CONFIRMAÇÃO — BLACK DRAGONS IMOB */
+
+.gestao-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: gestao-overlay-entrada 0.2s ease;
+}
+
+.gestao-modal {
+  width: min(100%, 460px);
+  padding: 30px;
+  background: #111113;
+  color: #f5f5f5;
+  border: 1px solid rgba(217, 219, 224, 0.2);
+  border-radius: 18px;
+  box-shadow: 0 25px 90px rgba(0, 0, 0, 0.55);
+  animation: gestao-modal-entrada 0.22s ease;
+}
+
+.gestao-modal-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(255, 100, 100, 0.35);
+  border-radius: 50%;
+  background: rgba(169, 47, 55, 0.16);
+  color: #ff8585;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.gestao-modal h2 {
+  margin: 0 0 12px;
+  color: #f5f5f5;
+  font-size: 1.5rem;
+}
+
+.gestao-modal > p {
+  color: #a6a6ab;
+  line-height: 1.7;
+}
+
+.gestao-modal-imovel {
+  display: grid;
+  gap: 7px;
+  margin: 22px 0;
+  padding: 15px;
+  background: #09090a;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 10px;
+  overflow-wrap: anywhere;
+}
+
+.gestao-modal-imovel strong {
+  color: #f5f5f5;
+}
+
+.gestao-modal-imovel span {
+  color: #a6a6ab;
+  font-size: 0.85rem;
+}
+
+.gestao-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.gestao-modal-actions .gestao-button-danger {
+  background: #a92f37;
+  border-color: #a92f37;
+  color: #ffffff;
+}
+
+.gestao-modal-actions .gestao-button-danger:hover:not(:disabled) {
+  background: #c43a43;
+}
+
+@keyframes gestao-overlay-entrada {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes gestao-modal-entrada {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .gestao-modal {
+    padding: 23px;
+  }
+
+  .gestao-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .gestao-modal-actions button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gestao-modal-overlay,
+  .gestao-modal {
+    animation: none;
+  }
+}
+
+/* =========================================
+   BLACK DRAGONS IMOB — LISTA DE IMÓVEIS
+========================================= */
+
+.gestao-imoveis-lista {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.gestao-imovel-item {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+  padding: 16px;
+  background: #09090a;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 13px;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.gestao-imovel-item:hover {
+  border-color: rgba(217, 219, 224, 0.3);
+}
+
+.gestao-imovel-foto {
+  display: block;
+  width: 140px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 9px;
+  background: #171719;
+}
+
+.gestao-sem-foto {
+  display: grid;
+  place-items: center;
+  color: #a6a6ab;
+  font-size: 0.8rem;
+}
+
+.gestao-imovel-dados {
+  min-width: 0;
+}
+
+.gestao-imovel-dados h3 {
+  margin: 0 0 8px;
+  color: #f5f5f5;
+  overflow-wrap: anywhere;
+}
+
+.gestao-imovel-dados p {
+  margin: 0 0 10px;
+  color: #a6a6ab;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+.gestao-imovel-dados strong {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #d9dbe0;
+  font-size: 1.05rem;
+}
+
+.gestao-imovel-acoes {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.gestao-page .gestao-button-secondary {
+  background: transparent;
+  color: #d9dbe0;
+  border: 1px solid rgba(217, 219, 224, 0.35);
+}
+
+.gestao-page .gestao-button-secondary:hover:not(:disabled) {
+  background: rgba(217, 219, 224, 0.08);
+  border-color: rgba(217, 219, 224, 0.65);
+}
+
+.gestao-page .gestao-button-danger {
+  background: transparent;
+  color: #ffb4b4;
+  border: 1px solid rgba(255, 100, 100, 0.4);
+}
+
+.gestao-page .gestao-button-danger:hover:not(:disabled) {
+  background: rgba(180, 40, 40, 0.14);
+  border-color: rgba(255, 100, 100, 0.75);
+}
+
+.gestao-foto-atual {
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+  margin-top: 22px;
+  color: #a6a6ab;
+  font-size: 0.85rem;
+}
+
+.gestao-foto-atual img {
+  width: min(100%, 320px);
+  max-height: 220px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+}
+
+.gestao-campo-completo {
+  grid-column: 1 / -1;
+}
+
+/* =========================================
+   MODAL PREMIUM — CONFIRMAÇÃO DE EXCLUSÃO
+========================================= */
+
+.gestao-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: gestao-overlay-entrada 0.2s ease;
+}
+
+.gestao-modal {
+  width: min(100%, 460px);
+  padding: 30px;
+  background: #111113;
+  color: #f5f5f5;
+  border: 1px solid rgba(217, 219, 224, 0.2);
+  border-radius: 18px;
+  box-shadow: 0 25px 90px rgba(0, 0, 0, 0.55);
+  animation: gestao-modal-entrada 0.22s ease;
+}
+
+.gestao-modal-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(255, 100, 100, 0.35);
+  border-radius: 50%;
+  background: rgba(169, 47, 55, 0.16);
+  color: #ff8585;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.gestao-modal h2 {
+  margin: 0 0 12px;
+  color: #f5f5f5;
+  font-size: 1.5rem;
+}
+
+.gestao-modal > p:not(.gestao-eyebrow):not(.gestao-message) {
+  color: #a6a6ab;
+  line-height: 1.7;
+}
+
+.gestao-modal-imovel {
+  display: grid;
+  gap: 7px;
+  margin: 22px 0;
+  padding: 15px;
+  background: #09090a;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 10px;
+  overflow-wrap: anywhere;
+}
+
+.gestao-modal-imovel strong {
+  color: #f5f5f5;
+}
+
+.gestao-modal-imovel span {
+  color: #a6a6ab;
+  font-size: 0.85rem;
+}
+
+.gestao-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.gestao-modal-actions .gestao-button-danger {
+  background: #a92f37;
+  border-color: #a92f37;
+  color: #fff;
+}
+
+.gestao-modal-actions .gestao-button-danger:hover:not(:disabled) {
+  background: #c43a43;
+  border-color: #c43a43;
+}
+
+.gestao-modal-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.gestao-voltar {
+  margin-top: 24px;
+}
+
+@keyframes gestao-overlay-entrada {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes gestao-modal-entrada {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 760px) {
+  .gestao-imovel-item {
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .gestao-imovel-foto {
+    width: 100px;
+    height: 100px;
+  }
+
+  .gestao-imovel-acoes {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .gestao-modal {
+    padding: 23px;
+  }
+
+  .gestao-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .gestao-modal-actions button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .gestao-imovel-item {
+    grid-template-columns: 1fr;
+  }
+
+  .gestao-imovel-foto {
+    width: 100%;
+    height: 180px;
+  }
+
+  .gestao-imovel-acoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gestao-imovel-acoes button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gestao-modal-overlay,
+  .gestao-modal {
+    animation: none;
+  }
+
+  .gestao-imovel-item {
+    transition: none;
+  }
+}
+
