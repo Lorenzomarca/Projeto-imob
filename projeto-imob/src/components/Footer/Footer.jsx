@@ -25,7 +25,7 @@ function Footer() {
 
           <div className="footer-socials">
             <a
-              href="https://www.instagram.com/blackdragons.imob/"
+              href="https://www.instagram.com/tech_duo.ml?utm_source=ig_web_button_share_sheet&srtk=ZDNlZDc0MzIxNw=="
               target="_blank"
               rel="noreferrer"
               className="footer-social-link"
@@ -64,7 +64,7 @@ function Footer() {
             </a>
 
             <a
-              href="https://wa.me/5548999999999"
+              href="https://wa.me/5548984514714"
               target="_blank"
               rel="noreferrer"
               className="footer-social-link"
