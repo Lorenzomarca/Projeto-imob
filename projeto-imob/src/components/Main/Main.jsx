@@ -851,10 +851,6 @@ function Main({ onSelecionarImovel, onLogin }) {
       </section>
 
       {/* RODAPÉ */}
-      <footer className="main-bottom-line">
-        <span>BLACK DRAGONS IMOBILIÁRIA</span>
-        <a href="#inicio">Voltar ao início ↑</a>
-      </footer>
     </main>
   );
 }

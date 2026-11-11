@@ -164,7 +164,7 @@ function Footer() {
       {/* BASE DO FOOTER */}
       <div className="lux-footer-bottom">
         <p>
-          © {new Date().getFullYear()} Black Dragons IMOB.
+          © {new Date().getFullYear()} Tech Duo - Antonio Marcos Marques, Parceiro.
           <span> Todos os direitos reservados.</span>
         </p>
 
