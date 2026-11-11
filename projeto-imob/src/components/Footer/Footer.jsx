@@ -80,7 +80,7 @@ function Footer() {
           <a href="#lancamentos">Lançamentos</a>
           <a href="#destaques">Imóveis em destaque</a>
           <a href="#sobre">Sobre nós</a>
-          <a href="#contato">Contato</a>
+          <a href="https://linktree-duotech.vercel.app">Contato</a>
         </nav>
 
         {/* LOCALIZAÇÃO */}
